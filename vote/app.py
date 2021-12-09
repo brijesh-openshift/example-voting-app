@@ -10,7 +10,7 @@ option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
 hostname = socket.gethostname()
 
-redis_pass = os.getenv( 'redis_password' )
+redis_pass = os.getenv( 'REDIS_PASSWORD' )
 print( "Redis Password : ", redis_pass )
 
 app = Flask(__name__)
