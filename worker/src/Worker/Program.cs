@@ -140,6 +140,9 @@ namespace Worker
             var command = connection.CreateCommand();
             try
             {
+                Console.Error.WriteLine( $"UpdateVote voterId : {voterId} " );
+                Console.Error.WriteLine( $"UpdateVote vote: {vote} " );
+                
                 command.CommandText = "INSERT INTO votes (id, vote) VALUES (@id, @vote)";
                 command.Parameters.AddWithValue("@id", voterId);
                 command.Parameters.AddWithValue("@vote", vote);
@@ -152,6 +155,8 @@ namespace Worker
             }
             finally
             {
+                Console.Error.WriteLine( "Finally executed !" );
+                 
                 command.Dispose();
             }
         }
