@@ -115,8 +115,9 @@ namespace Worker
                     Console.Error.WriteLine("Connecting to redis");
                     return ConnectionMultiplexer.Connect(ipAddress);
                 }
-                catch (RedisConnectionException)
+                catch (RedisConnectionException e)
                 {
+                    Console.WriteLine($"The file was not found: '{e}'");
                     Console.Error.WriteLine("Waiting for redis");
                     Thread.Sleep(1000);
                 }
