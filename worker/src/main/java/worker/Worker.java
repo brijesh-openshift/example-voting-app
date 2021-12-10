@@ -55,10 +55,10 @@ class Worker {
         conn.auth( "redis_password" );
         break;
       } catch (JedisConnectionException e) {
-        
+        System.err.println("Redis error : " + e );
         System.err.println("Waiting for redis");
         sleep(1000);
-        e.printStackTrace();
+        
       }
     }
 
