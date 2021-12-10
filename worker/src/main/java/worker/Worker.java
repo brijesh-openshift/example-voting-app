@@ -8,7 +8,7 @@ import org.json.JSONObject;
 class Worker {
   public static void main(String[] args) {
     try {
-      Jedis redis = connectToRedis("redis");
+      Jedis redis = connectToRedis2("redis");
       Connection dbConn = connectToDB("db");
 
       System.err.println("Watching vote queue");
@@ -45,7 +45,7 @@ class Worker {
     }
   }
 
-  static Jedis connectToRedis(String host) {
+  static Jedis connectToRedis2(String host) {
     Jedis conn = new Jedis(host);
 
     while (true) {
