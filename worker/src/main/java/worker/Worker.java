@@ -51,6 +51,8 @@ class Worker {
     while (true) {
       try {
         conn.keys("*");
+        conn.connect();
+        conn.auth( "redis_password" );
         break;
       } catch (JedisConnectionException e) {
         
