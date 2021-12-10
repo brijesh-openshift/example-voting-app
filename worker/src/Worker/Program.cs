@@ -114,7 +114,10 @@ namespace Worker
                 {
                     Console.Error.WriteLine("Connecting to redis");
                     // return ConnectionMultiplexer.Connect(ipAddress);
-                    return ConnectionMultiplexer.Connect( "redis,password=redis_password" ); 
+                    var redis_pass = Environment.GetEnvironmentVariable("REDIS_PASSWORD");
+                    Console.Error.WriteLine( $"Redis Password : {redis_pass} " );
+                    
+                    return ConnectionMultiplexer.Connect( $"redis,password={redis_pass}" ); 
                 }
                 catch (RedisConnectionException e)
                 {
