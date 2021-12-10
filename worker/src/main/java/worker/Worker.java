@@ -50,9 +50,13 @@ class Worker {
 
     while (true) {
       try {
+        System.err.println("Conn 0 " + conn );
         conn.keys("*");
-        conn.connect();
+        System.err.println("Conn 1 " + conn );
         conn.auth( "redis_password" );
+        System.err.println("Conn 2 " + conn );
+        conn.connect();
+        System.err.println("Conn 3 " + conn );
         break;
       } catch (JedisConnectionException e) {
         System.err.println("Redis error : " + e );
